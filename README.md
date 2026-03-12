@@ -55,7 +55,7 @@
 ## 🌐 Connect With Me
 
 - GitHub: https://github.com/yashuhb18  
-- LinkedIn: Add your LinkedIn link
+- LinkedIn: https://www.linkedin.com/in/yashwanth-h-b-66765b2aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app
 
 ---
 

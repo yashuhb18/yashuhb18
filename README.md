@@ -117,11 +117,11 @@ Location : India 🇮🇳
 
 <div align="center">
 
-![Yashwanth's GitHub Stats](https://github-readme-stats.vercel.app/api?username=YashwanthHB&show_icons=true&theme=matrix&hide_border=true&bg_color=0d1117&title_color=00FF41&icon_color=00FF41&text_color=c9d1d9)
+![Yashwanth's GitHub Stats](https://github-readme-stats.vercel.app/api?username=yashuhb18&show_icons=true&theme=matrix&hide_border=true&bg_color=0d1117&title_color=00FF41&icon_color=00FF41&text_color=c9d1d9)
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=YashwanthHB&layout=compact&theme=matrix&hide_border=true&bg_color=0d1117&title_color=00FF41&text_color=c9d1d9)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=yashuhb18&layout=compact&theme=matrix&hide_border=true&bg_color=0d1117&title_color=00FF41&text_color=c9d1d9)
 
-![GitHub Streak](https://streak-stats.demolab.com/?user=YashwanthHB&theme=matrix&hide_border=true&background=0d1117&ring=00FF41&fire=00FF41&currStreakLabel=00FF41)
+![GitHub Streak](https://streak-stats.demolab.com/?user=yashuhb18&theme=matrix&hide_border=true&background=0d1117&ring=00FF41&fire=00FF41&currStreakLabel=00FF41)
 
 </div>
 
@@ -157,8 +157,8 @@ roadmap = {
 
 <div align="center">
 
-[![LinkedIn](https://www.linkedin.com/in/yashwanth-h-b-66765b2aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app )
-[![GitHub](https://github.com/yashuhb18)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yashwanth-h-b-66765b2aa)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yashuhb18)
 [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:yashuhb18@gmail.com)
 
 </div>
@@ -174,7 +174,7 @@ roadmap = {
 ╚══════════════════════════════════════════════════════╝
 ```
 
-![Visitor Count](https://komarev.com/ghpvc/?username=YashwanthHB&color=00FF41&style=flat-square&label=PROFILE+VISITORS)
+![Visitor Count](https://komarev.com/ghpvc/?username=yashuhb18&color=00FF41&style=flat-square&label=PROFILE+VISITORS)
 
 *⚡ ECE Undergrad | Cybersecurity | IoT | Web | DevSecOps*
 

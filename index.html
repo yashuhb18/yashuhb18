@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yashwanth H B | National Hackathon Champion • Cybersecurity & AI Architect</title>
+  <meta name="description" content="Official portfolio of Yashwanth H B — National Hackathon Champion, Autonomous Hardware Threat Hunting, AI-Powered AppSec Digital Twins, DevSecOps & High-Impact Engineering." />
+  
+  <!-- Font & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"Fira Code"', 'monospace'],
+          },
+          colors: {
+            cyber: {
+              black: '#030712',
+              card: '#081022',
+              cardborder: '#172554',
+              blue: '#2563EB',
+              sky: '#38BDF8',
+              cyan: '#06B6D4',
+              emerald: '#10B981',
+              purple: '#8B5CF6',
+              gold: '#F59E0B',
+              darkred: '#EF4444'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #030712;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #38bdf8;
+    }
+    
+    .cyber-grid {
+      background-size: 36px 36px;
+      background-image: 
+        linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+    }
+    
+    .glow-border {
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      transition: all 0.3s ease;
+    }
+    .glow-border:hover {
+      border-color: rgba(56, 189, 248, 0.6);
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
+    }
+
+    .trophy-gold {
+      border-color: rgba(245, 158, 11, 0.4);
+      background: radial-gradient(circle at top left, rgba(245, 158, 11, 0.1), transparent 70%), #081022;
+    }
+    .trophy-gold:hover {
+      border-color: rgba(245, 158, 11, 0.8);
+      box-shadow: 0 0 30px rgba(245, 158, 11, 0.25);
+    }
+
+    /* Commit Cell Radiance */
+    .commit-cell {
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .commit-cell:hover {
+      transform: scale(1.4);
+      z-index: 20;
+      box-shadow: 0 0 10px #38bdf8;
+    }
+    .commit-flash {
+      animation: cellPulse 1.2s ease-out;
+    }
+    @keyframes cellPulse {
+      0% {
+        transform: scale(1.8);
+        box-shadow: 0 0 25px #38bdf8, 0 0 40px #10b981;
+        background-color: #ffffff !important;
+        z-index: 30;
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: none;
+        z-index: 1;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-[#030712] text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-black min-h-screen relative overflow-x-hidden">
+
+  <!-- Interactive Canvas Particle Field -->
+  <canvas id="particleCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+  
+  <!-- Subtle Grid Overlay -->
+  <div class="fixed inset-0 cyber-grid pointer-events-none z-0"></div>
+
+  <!-- Ambient Light Blobs -->
+  <div class="fixed top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
+  <div class="fixed top-[40%] right-[-10%] w-[550px] h-[550px] bg-amber-500/10 rounded-full blur-[140px] pointer-events-none z-0"></div>
+  <div class="fixed bottom-[-10%] left-[-5%] w-[600px] h-[600px] bg-cyan-600/10 rounded-full blur-[140px] pointer-events-none z-0"></div>
+
+  <!-- TOP HUD NAVIGATION -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#030712]/85 border-b border-slate-800/80 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand & Telemetry Indicator -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-lg bg-slate-900 border border-amber-500/50 flex items-center justify-center text-amber-400 font-mono font-bold text-sm shadow-[0_0_12px_rgba(245,158,11,0.25)] group-hover:border-amber-400 transition-colors">
+          🏆
+        </div>
+        <div>
+          <span class="font-mono text-sm font-semibold tracking-wider text-slate-200 group-hover:text-cyan-400 transition-colors">
+            YASHWANTH H B
+          </span>
+          <div class="flex items-center gap-1.5 text-[10px] font-mono text-slate-400">
+            <span class="relative flex h-1.5 w-1.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+            </span>
+            <span>NATIONAL WINNER // ZERO TRUST ENFORCED</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-7 text-xs font-mono text-slate-300">
+        <a href="#awards" class="text-amber-400 hover:text-amber-300 transition-colors">`// 01.AWARDS`</a>
+        <a href="#commit-arcade" class="text-emerald-400 hover:text-emerald-300 transition-colors">`// 02.COMMIT_GAME`</a>
+        <a href="#projects" class="hover:text-cyan-400 transition-colors">`// 03.ARSENAL`</a>
+        <a href="#terminal" class="hover:text-cyan-400 transition-colors">`// 04.TERMINAL`</a>
+        <a href="#skills" class="hover:text-cyan-400 transition-colors">`// 05.STACK`</a>
+        <a href="#contact" class="hover:text-cyan-400 transition-colors">`// 06.CONTACT`</a>
+      </nav>
+
+      <!-- CTA Hub -->
+      <div class="flex items-center gap-3">
+        <a href="https://github.com/yashuhb18" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 hover:border-cyan-500 text-xs font-mono text-slate-200 transition-all duration-200 shadow-sm">
+          <span>GitHub</span>
+        </a>
+
+        <a href="mailto:yashwanthhb18@gmail.com" 
+           class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-amber-500 to-cyan-500 hover:from-amber-400 hover:to-cyan-400 text-slate-950 font-mono font-bold text-xs transition-all duration-200 shadow-[0_0_15px_rgba(245,158,11,0.3)]">
+          <span>Connect</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER -->
+  <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-28 space-y-24">
+
+    <!-- HERO SECTION -->
+    <section id="about" class="pt-6 sm:pt-10 pb-4">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Left: Headline & Bio -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-amber-950/50 border border-amber-500/40 text-amber-300 font-mono text-xs">
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+            <span>🥇 1ST PRIZE NATIONAL CHAMPION • TAMIL NADU & KARNATAKA</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+            Engineering battle-tested 
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-cyan-300 to-blue-500">
+              cyber defense
+            </span> & autonomous systems.
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+            I am <strong class="text-white font-semibold">Yashwanth H B</strong> — Electronics & Communication Engineer at <span class="text-cyan-300 font-medium">Maharaja Institute of Technology, Mysore</span>. I build national award-winning systems spanning hardware deception honeypots, AI AppSec digital twins, and decentralized civic platforms.
+          </p>
+
+          <!-- Core stats / telemetry pills -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+            <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 glow-border">
+              <div class="text-2xl font-bold font-mono text-amber-400">4+</div>
+              <div class="text-xs text-slate-400 font-mono mt-1">Hackathon Podiums</div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 glow-border">
+              <div class="text-2xl font-bold font-mono text-emerald-400">&lt; 1s</div>
+              <div class="text-xs text-slate-400 font-mono mt-1">Deception Mitigation</div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 glow-border">
+              <div class="text-2xl font-bold font-mono text-cyan-400">4,290+</div>
+              <div class="text-xs text-slate-400 font-mono mt-1">Civic Schemes Indexed</div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 glow-border">
+              <div class="text-2xl font-bold font-mono text-purple-400">31+</div>
+              <div class="text-xs text-slate-400 font-mono mt-1">Shipped Repos</div>
+            </div>
+          </div>
+
+          <!-- Action buttons -->
+          <div class="flex flex-wrap items-center gap-4 pt-3">
+            <a href="#awards" class="px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-slate-950 font-mono font-bold text-sm tracking-wide transition-all shadow-[0_0_20px_rgba(245,158,11,0.4)] flex items-center gap-2">
+              <span>🏆 HALL OF FAME</span>
+              <span>↓</span>
+            </a>
+            <a href="#commit-arcade" class="px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-emerald-500/50 hover:border-emerald-400 text-emerald-300 font-mono text-sm transition-all flex items-center gap-2">
+              <span class="animate-pulse">●</span>
+              <span>COMMIT ARCADE (LIVE)</span>
+            </a>
+            <a href="https://haxrl8.vercel.app" target="_blank" class="px-5 py-3 rounded-xl bg-pink-950/40 hover:bg-pink-900/50 border border-pink-500/40 text-pink-300 font-mono text-sm transition-all flex items-center gap-2">
+              <span>HAXLR8 3.0</span>
+              <span class="text-xs">↗</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right: Telemetry & Live Incident Radar -->
+        <div class="lg:col-span-5">
+          <div class="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 shadow-2xl relative overflow-hidden glow-border">
+            
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-red-500/90"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-500/90"></span>
+                <span class="w-3 h-3 rounded-full bg-emerald-500/90"></span>
+                <span class="ml-2 font-mono text-xs text-slate-400">defense-telemetry.sys</span>
+              </div>
+              <span class="font-mono text-[11px] text-amber-400 bg-amber-950/50 px-2 py-0.5 rounded border border-amber-800">ARMED</span>
+            </div>
+
+            <div class="space-y-4 font-mono text-xs">
+              
+              <!-- Metric 1 -->
+              <div>
+                <div class="flex justify-between text-slate-300 mb-1">
+                  <span>PHANTOM Hardware Deception Traps</span>
+                  <span class="text-cyan-400 font-semibold">100% READY</span>
+                </div>
+                <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                  <div class="bg-gradient-to-r from-cyan-500 to-blue-500 h-2 rounded-full w-[100%] animate-pulse"></div>
+                </div>
+              </div>
+
+              <!-- Metric 2 -->
+              <div>
+                <div class="flex justify-between text-slate-300 mb-1">
+                  <span>CyberTwin Graph Reasoning Engine</span>
+                  <span class="text-purple-400 font-semibold">ACTIVE</span>
+                </div>
+                <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                  <div class="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full w-[95%]"></div>
+                </div>
+              </div>
+
+              <!-- Metric 3 -->
+              <div>
+                <div class="flex justify-between text-slate-300 mb-1">
+                  <span>JanDarpan Polygon Audit Trail</span>
+                  <span class="text-emerald-400 font-semibold">SYNCHRONIZED</span>
+                </div>
+                <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                  <div class="bg-gradient-to-r from-cyan-400 to-emerald-400 h-2 rounded-full w-[99%]"></div>
+                </div>
+              </div>
+
+              <!-- Radar readout box -->
+              <div class="mt-4 p-3.5 rounded-lg bg-black/60 border border-slate-800/80 text-[11px] leading-relaxed text-slate-300 space-y-1.5">
+                <div class="text-amber-400 font-semibold">// RECENT SYSTEM HONORS</div>
+                <p>• 🥇 <strong>1st Prize</strong>: National Hackathon @ Dhanalakshmi Srinivasan, TN</p>
+                <p>• 🥇 <strong>1st Prize</strong>: Inter-College Hackathon @ Ethnotech Academy</p>
+                <p>• 🥉 <strong>2nd Runner Up</strong>: State Hackathon @ CIT Mandya</p>
+                <p>• 🎖️ <strong>Shortlisted</strong>: National Hackathon @ DY Patil, Maharashtra</p>
+                <div class="pt-1 text-[10px] text-slate-500">Live Uptime: 24/7 • Defense Status: Strict Zero-Trust</div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: HACKATHON HALL OF FAME -->
+    <section id="awards" class="pt-4">
+      <div class="mb-8">
+        <div class="text-amber-400 font-mono text-xs uppercase tracking-widest">// PROVEN TRACK RECORD</div>
+        <h2 class="text-3xl font-extrabold text-white tracking-tight mt-1">Hackathon Victories & Accolades</h2>
+        <p class="text-sm text-slate-400 mt-2">
+          Recognized by premier technical panels across national and state arenas.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- 01. JanDarpan AI -->
+        <div class="p-6 rounded-2xl border trophy-gold flex flex-col justify-between transition-all duration-300 hover:-translate-y-1">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 flex items-center gap-1.5">
+                <span>🥇 1ST PRIZE</span>
+                <span>• NATIONAL CHAMPION</span>
+              </span>
+              <span class="text-xs font-mono text-slate-400">Tamil Nadu</span>
+            </div>
+
+            <h3 class="text-xl font-bold text-white flex items-center gap-2">
+              <span>JanDarpan AI (जनदर्पण)</span>
+            </h3>
+
+            <div class="text-xs font-mono text-amber-300/90 font-medium">
+              National Level Hackathon @ Dhanalakshmi Srinivasan College of Engineering
+            </div>
+
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Awarded 1st place overall. Engineered next-gen citizen governance discovering 4,290+ government schemes in 10s, GLM-4 vision audits for civic roads/hospitals, Section 80 CPC High Court PIL generator, and Polygon blockchain proof ledger.
+            </p>
+          </div>
+
+          <div class="pt-5 border-t border-slate-800/80 mt-5 flex items-center justify-between">
+            <span class="text-[11px] font-mono text-emerald-400">✓ GLM-4V + Blockchain Ledger</span>
+            <a href="https://github.com/yashuhb18/JanDarpan-Breaking-Bad" target="_blank" class="text-xs font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
+              <span>View Code</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 02. RoomiFY -->
+        <div class="p-6 rounded-2xl border trophy-gold flex flex-col justify-between transition-all duration-300 hover:-translate-y-1">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 flex items-center gap-1.5">
+                <span>🥇 1ST PRIZE</span>
+                <span>• CHAMPION</span>
+              </span>
+              <span class="text-xs font-mono text-slate-400">Inter-College</span>
+            </div>
+
+            <h3 class="text-xl font-bold text-white flex items-center gap-2">
+              <span>RoomiFY Platform</span>
+            </h3>
+
+            <div class="text-xs font-mono text-emerald-300/90 font-medium">
+              Inter-College Hackathon by Ethnotech Academy
+            </div>
+
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Awarded 1st prize for high-concurrency roommate compatibility algorithms, verified rental inventory mapping, real-time messaging, and student dispute mediation workflows.
+            </p>
+          </div>
+
+          <div class="pt-5 border-t border-slate-800/80 mt-5 flex items-center justify-between">
+            <span class="text-[11px] font-mono text-cyan-400">✓ Full-Stack TypeScript + Matching Engine</span>
+            <a href="https://github.com/yashuhb18/RoomiFY" target="_blank" class="text-xs font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
+              <span>View Code</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 03. CyberTwin -->
+        <div class="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-purple-500/60 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 glow-border">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-purple-500/20 text-purple-300 border border-purple-500/40 flex items-center gap-1.5">
+                <span>🥉 2ND RUNNER UP</span>
+                <span>• STATE LEVEL</span>
+              </span>
+              <span class="text-xs font-mono text-slate-400">Karnataka</span>
+            </div>
+
+            <h3 class="text-xl font-bold text-white flex items-center gap-2">
+              <span>CyberTwin AppSec Platform</span>
+            </h3>
+
+            <div class="text-xs font-mono text-purple-300/90 font-medium">
+              State Level Hackathon @ CIT Engineering College, Mandya
+            </div>
+
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Constructed an AI-powered Application Security Digital Twin. Replaces raw scanner fatigue with connected knowledge graphs (OWASP/CWE/MITRE) and automated code patch synthesis.
+            </p>
+          </div>
+
+          <div class="pt-5 border-t border-slate-800/80 mt-5 flex items-center justify-between">
+            <span class="text-[11px] font-mono text-purple-400">✓ AI Security Knowledge Graph</span>
+            <a href="https://github.com/yashuhb18/CyberTwin" target="_blank" class="text-xs font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
+              <span>View Code</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 04. PHANTOM -->
+        <div class="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-cyan-500/60 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 glow-border">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 flex items-center gap-1.5">
+                <span>🎖️ NATIONAL FINALIST</span>
+                <span>• SHORTLISTED INNOVATION</span>
+              </span>
+              <span class="text-xs font-mono text-slate-400">Maharashtra</span>
+            </div>
+
+            <h3 class="text-xl font-bold text-white flex items-center gap-2">
+              <span>PHANTOM Deception Platform</span>
+            </h3>
+
+            <div class="text-xs font-mono text-cyan-300/90 font-medium">
+              National Level Hackathon @ D.Y. Patil College of Engineering, Maharashtra
+            </div>
+
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Selected among top national projects for zero-trust physical peripheral defense, sub-second USB threat mitigation, automated decoy honeytokens, and MITRE ATT&CK telemetry.
+            </p>
+          </div>
+
+          <div class="pt-5 border-t border-slate-800/80 mt-5 flex items-center justify-between">
+            <span class="text-[11px] font-mono text-cyan-400">✓ Hardware Threat Hunting</span>
+            <a href="https://github.com/yashuhb18/PHANTOOM" target="_blank" class="text-xs font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
+              <span>View Code</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: GAMIFIED REAL-TIME COMMIT ARCADE -->
+    <section id="commit-arcade" class="pt-4">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+        <div>
+          <div class="inline-flex items-center gap-2 text-emerald-400 font-mono text-xs uppercase tracking-widest">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span>// LIVE TELEMETRY ARCADE • 1 COMMIT / SEC</span>
+          </div>
+          <h2 class="text-3xl font-extrabold text-white tracking-tight mt-1">Continuous Cyber Commit Matrix</h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1">
+            Real-time second-by-second streaming commits. Click squares to drop your own commit or engage turbo boost!
+          </p>
+        </div>
+
+        <!-- Arcade Control Buttons -->
+        <div class="flex flex-wrap items-center gap-2 font-mono text-xs">
+          <button id="turboBtn" class="px-3.5 py-1.5 rounded-lg bg-slate-900 border border-cyan-500/50 hover:bg-cyan-950 text-cyan-300 transition-all flex items-center gap-1.5 shadow-sm">
+            <span>⚡ OVERCLOCK (5x)</span>
+          </button>
+          <button id="pauseBtn" class="px-3.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700 hover:border-slate-500 text-slate-300 transition-all">
+            ❚❚ Pause
+          </button>
+          <button id="snakeModeBtn" class="px-3.5 py-1.5 rounded-lg bg-emerald-950/60 border border-emerald-500/50 hover:bg-emerald-900/60 text-emerald-300 transition-all flex items-center gap-1.5">
+            <span>🐍 SNAKE TRAIL</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Arcade Box -->
+      <div class="rounded-3xl bg-[#050b18] border border-cyan-950/90 p-6 sm:p-8 shadow-[0_0_40px_rgba(6,182,212,0.12)] relative overflow-hidden glow-border">
+        
+        <!-- Live HUD Status Bar -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pb-6 border-b border-slate-800/80 font-mono text-xs">
+          <div>
+            <div class="text-slate-400 text-[10px]">TOTAL COMMITS RECORDED</div>
+            <div id="commitCountDisplay" class="text-2xl font-bold text-cyan-400 font-mono mt-0.5">1,492</div>
+          </div>
+          <div>
+            <div class="text-slate-400 text-[10px]">CURRENT COMBO STREAK</div>
+            <div id="comboDisplay" class="text-2xl font-bold text-emerald-400 font-mono mt-0.5">48x 🔥</div>
+          </div>
+          <div>
+            <div class="text-slate-400 text-[10px]">ENGINEERING XP</div>
+            <div id="xpDisplay" class="text-2xl font-bold text-amber-400 font-mono mt-0.5">94,620 XP</div>
+          </div>
+          <div>
+            <div class="text-slate-400 text-[10px]">MATRIX LEVEL</div>
+            <div class="text-2xl font-bold text-purple-400 font-mono mt-0.5">LVL 42 (ARCHITECT)</div>
+          </div>
+        </div>
+
+        <!-- 52-Week Contribution Grid Container -->
+        <div class="pt-6 overflow-x-auto pb-2">
+          <div class="min-w-[760px]">
+            
+            <div class="flex items-center justify-between text-[11px] font-mono text-slate-500 mb-2">
+              <span>Nov</span>
+              <span>Dec</span>
+              <span>Jan</span>
+              <span>Feb</span>
+              <span>Mar</span>
+              <span>Apr</span>
+              <span>May</span>
+              <span>Jun</span>
+              <span>Jul</span>
+              <span>Aug</span>
+              <span>Sep</span>
+              <span>Oct (Active)</span>
+            </div>
+
+            <!-- Grid: 7 rows (days) x 52 columns (weeks) -->
+            <div id="gridContainer" class="grid grid-flow-col grid-rows-7 gap-1.5">
+              <!-- Dynamically populated via JS to avoid empty cells! -->
+            </div>
+
+            <div class="flex items-center justify-between mt-3 text-[11px] font-mono text-slate-400">
+              <div class="flex items-center gap-2">
+                <span>💡 Click any cell to manually push a commit!</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span>Less</span>
+                <span class="w-3 h-3 rounded-sm bg-slate-900 border border-slate-800"></span>
+                <span class="w-3 h-3 rounded-sm bg-cyan-950 border border-cyan-800"></span>
+                <span class="w-3 h-3 rounded-sm bg-cyan-700"></span>
+                <span class="w-3 h-3 rounded-sm bg-cyan-400 shadow-[0_0_8px_#38bdf8]"></span>
+                <span class="w-3 h-3 rounded-sm bg-amber-400 shadow-[0_0_8px_#f59e0b]"></span>
+                <span>More</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Live Streaming Commit Terminal Ticker -->
+        <div class="mt-6 p-4 rounded-xl bg-black/70 border border-slate-800/80 font-mono text-xs">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-900 mb-2.5">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="text-cyan-400 font-bold">STREAMING COMMIT FEED [1/SEC]</span>
+            </div>
+            <span id="streamRateDisplay" class="text-[10px] text-slate-400">Rate: 1 commit / sec • 100% Filled</span>
+          </div>
+
+          <div id="commitStreamLogs" class="space-y-1.5 max-h-24 overflow-hidden text-slate-300">
+            <!-- New commits will stream in here every second -->
+            <div class="text-slate-400"><span class="text-cyan-400">[SYSTEM]</span> Real-time contribution matrix synchronized with yashuhb18 GitHub stream.</div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- FLAGSHIP PROJECTS / ARSENAL -->
+    <section id="projects" class="pt-4">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div>
+          <div class="text-cyan-400 font-mono text-xs uppercase tracking-widest">// BATTLE-TESTED SYSTEMS</div>
+          <h2 class="text-3xl font-extrabold text-white tracking-tight mt-1">Flagship Engineering Arsenal</h2>
+        </div>
+        
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap gap-2 text-xs font-mono">
+          <button class="filter-btn active px-3 py-1.5 rounded-lg bg-cyan-500 text-slate-950 font-bold transition-all" data-filter="all">All Systems</button>
+          <button class="filter-btn px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-cyan-500 transition-all" data-filter="cyber">Cyber & Threat</button>
+          <button class="filter-btn px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-cyan-500 transition-all" data-filter="ai">AI & Governance</button>
+          <button class="filter-btn px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-cyan-500 transition-all" data-filter="web">Full-Stack & Cloud</button>
+        </div>
+      </div>
+
+      <!-- Project Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- 01. PHANTOM -->
+        <div class="project-card group rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-cyan-500/80 p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-[0_0_30px_rgba(6,182,212,0.2)] glow-border" data-category="cyber">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-2xl">🛡️</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-cyan-950 text-cyan-300 border border-cyan-800">
+                DY PATIL FINALIST
+              </span>
+            </div>
+            
+            <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+              PHANTOM
+            </h3>
+            
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Autonomous endpoint & removable media defense matrix. Enforces hardware-level zero-trust deception via real-time USB probing, honeypots, sub-second threat neutralisation, and MITRE ATT&CK telemetry.
+            </p>
+
+            <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Python 3.11</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">FastAPI</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">React 18</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Vite</span>
+              <span class="px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-800">Honeytokens</span>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-slate-800/80 mt-6 flex items-center justify-between">
+            <a href="https://github.com/yashuhb18/PHANTOOM" target="_blank" class="text-xs font-mono font-semibold text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5">
+              <span>View Source Code</span>
+              <span>→</span>
+            </a>
+            <span class="text-[10px] font-mono text-slate-500">Sub-second Defense</span>
+          </div>
+        </div>
+
+        <!-- 02. CyberTwin -->
+        <div class="project-card group rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-purple-500/80 p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-[0_0_30px_rgba(139,92,246,0.2)] glow-border" data-category="cyber ai">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-2xl">🧠</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-purple-950 text-purple-300 border border-purple-800">
+                CIT MANDYA RUNNER-UP
+              </span>
+            </div>
+            
+            <h3 class="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">
+              CyberTwin
+            </h3>
+            
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Living architectural model of target applications. Ingests repos, identifies trust boundaries & attack surfaces, and feeds scanner findings into a security knowledge graph (OWASP/CWE/CVE) for automated patching.
+            </p>
+
+            <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">TypeScript</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">TanStack Start</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">FastAPI</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Semgrep/Trivy</span>
+              <span class="px-2 py-0.5 rounded bg-purple-950 text-purple-400 border border-purple-800">Knowledge Graph</span>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-slate-800/80 mt-6 flex items-center justify-between">
+            <a href="https://github.com/yashuhb18/CyberTwin" target="_blank" class="text-xs font-mono font-semibold text-purple-400 hover:text-purple-300 flex items-center gap-1.5">
+              <span>View Source Code</span>
+              <span>→</span>
+            </a>
+            <span class="text-[10px] font-mono text-slate-500">AI AppSec Engine</span>
+          </div>
+        </div>
+
+        <!-- 03. JanDarpan AI -->
+        <div class="project-card group rounded-2xl bg-slate-900/90 border border-amber-500/50 hover:border-amber-400 p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-[0_0_30px_rgba(245,158,11,0.2)] trophy-gold" data-category="ai">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-2xl">🏛️</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-amber-950 text-amber-300 border border-amber-800">
+                1ST PRIZE NATIONAL
+              </span>
+            </div>
+            
+            <h3 class="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
+              JanDarpan AI (जनदर्पण)
+            </h3>
+            
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Winner at Dhanalakshmi Srinivasan College, Tamil Nadu. Maps 4,290+ government schemes in 10s, features GLM-4 vision audits for infrastructure, Section 80 CPC High Court PIL generator, and Polygon blockchain records.
+            </p>
+
+            <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">GLM-4 Vision</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Polygon Ledger</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Voice Synthesis</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">WhatsApp API</span>
+              <span class="px-2 py-0.5 rounded bg-amber-950 text-amber-400 border border-amber-800">Civic AI</span>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-slate-800/80 mt-6 flex items-center justify-between">
+            <a href="https://github.com/yashuhb18/JanDarpan-Breaking-Bad" target="_blank" class="text-xs font-mono font-semibold text-amber-400 hover:text-amber-300 flex items-center gap-1.5">
+              <span>View Source Code</span>
+              <span>→</span>
+            </a>
+            <span class="text-[10px] font-mono text-slate-500">National Champion</span>
+          </div>
+        </div>
+
+        <!-- 04. RoomiFY -->
+        <div class="project-card group rounded-2xl bg-slate-900/90 border border-emerald-500/50 hover:border-emerald-400 p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-[0_0_30px_rgba(16,185,129,0.2)] glow-border" data-category="web">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-2xl">🏠</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-emerald-950 text-emerald-300 border border-emerald-800">
+                1ST PRIZE ETHNOTECH
+              </span>
+            </div>
+            
+            <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+              RoomiFY Platform
+            </h3>
+            
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Winner at Ethnotech Academy hackathon. Engineered for high-throughput roommate lifestyle matching, verified rental housing listings, and friction-free student accommodation workflows.
+            </p>
+
+            <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">TypeScript</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">React</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Node.js</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Express</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">Matching AI</span>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-slate-800/80 mt-6 flex items-center justify-between">
+            <a href="https://github.com/yashuhb18/RoomiFY" target="_blank" class="text-xs font-mono font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1.5">
+              <span>View Source Code</span>
+              <span>→</span>
+            </a>
+            <span class="text-[10px] font-mono text-slate-500">1st Place Platform</span>
+          </div>
+        </div>
+
+        <!-- 05. HAXLR8 3.0 -->
+        <div class="project-card group rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-pink-500/80 p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-[0_0_30px_rgba(236,72,153,0.2)] glow-border" data-category="web">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-2xl">🚀</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-pink-950 text-pink-300 border border-pink-800">
+                LIVE PRODUCTION
+              </span>
+            </div>
+            
+            <h3 class="text-xl font-bold text-white group-hover:text-pink-400 transition-colors">
+              HAXLR8 3.0 Platform
+            </h3>
+            
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Official event portal for the national-level hackathon at Maharaja Institute of Technology Mysore. Handles registrations, live event telemetry, schedule streaming, and sponsor workflows.
+            </p>
+
+            <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">React</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Tailwind CSS</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Vite</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Vercel Edge</span>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-slate-800/80 mt-6 flex items-center justify-between">
+            <a href="https://github.com/yashuhb18/Haxrl8" target="_blank" class="text-xs font-mono font-semibold text-slate-400 hover:text-white">
+              Code ↗
+            </a>
+            <a href="https://haxrl8.vercel.app" target="_blank" class="text-xs font-mono font-semibold text-pink-400 hover:text-pink-300 flex items-center gap-1">
+              <span>Visit Portal</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 06. MediLink -->
+        <div class="project-card group rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-blue-500/80 p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-[0_0_30px_rgba(37,99,235,0.2)] glow-border" data-category="web">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-2xl">🩺</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-blue-950 text-blue-300 border border-blue-800">
+                LIVE PRODUCTION
+              </span>
+            </div>
+            
+            <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
+              MediLink Platform
+            </h3>
+            
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Patient-doctor consultation and secure health records portal. Designed for seamless appointment scheduling, cryptographic medical record privacy, and responsive tele-health.
+            </p>
+
+            <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">JavaScript</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Node.js</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Vercel</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Telehealth</span>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-slate-800/80 mt-6 flex items-center justify-between">
+            <a href="https://github.com/yashuhb18/MediLink" target="_blank" class="text-xs font-mono font-semibold text-slate-400 hover:text-white">
+              Code ↗
+            </a>
+            <a href="https://medi-link-six-snowy.vercel.app" target="_blank" class="text-xs font-mono font-semibold text-blue-400 hover:text-blue-300 flex items-center gap-1">
+              <span>Live Preview</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- INTERACTIVE TERMINAL SECTION -->
+    <section id="terminal" class="pt-4">
+      <div class="mb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <div class="text-cyan-400 font-mono text-xs uppercase tracking-widest">// SHELL SUBSYSTEM</div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mt-1">Interactive Command Center</h2>
+        </div>
+        <p class="text-xs font-mono text-slate-400">
+          Try typing: <code class="text-cyan-300 bg-slate-900 px-1.5 py-0.5 rounded">help</code>, 
+          <code class="text-amber-300 bg-slate-900 px-1.5 py-0.5 rounded">awards</code>, 
+          <code class="text-cyan-300 bg-slate-900 px-1.5 py-0.5 rounded">projects</code>, 
+          <code class="text-cyan-300 bg-slate-900 px-1.5 py-0.5 rounded">scan</code>, 
+          <code class="text-cyan-300 bg-slate-900 px-1.5 py-0.5 rounded">sudo hack</code>
+        </p>
+      </div>
+
+      <!-- Terminal Window -->
+      <div class="rounded-2xl bg-[#050b18] border border-cyan-950/80 shadow-[0_0_35px_rgba(6,182,212,0.12)] overflow-hidden glow-border">
+        
+        <!-- Header bar -->
+        <div class="bg-slate-950/90 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-rose-500/90 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-amber-500/90 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-emerald-500/90 inline-block"></span>
+            <span class="ml-3 font-mono text-xs text-slate-300 font-medium">yashwanth@security-matrix:~ (zsh)</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button id="clearTerminalBtn" class="text-[11px] font-mono text-slate-400 hover:text-cyan-400 px-2 py-0.5 rounded hover:bg-slate-800 transition-colors">
+              clear
+            </button>
+            <span class="font-mono text-[10px] text-cyan-400/80 border border-cyan-900/60 px-2 py-0.5 rounded">v2.5-SEC</span>
+          </div>
+        </div>
+
+        <!-- Terminal body -->
+        <div id="terminalBody" class="p-5 font-mono text-xs sm:text-sm text-slate-200 min-h-[280px] max-h-[440px] overflow-y-auto space-y-3">
+          
+          <div class="text-slate-400">
+            Welcome to the command environment for <span class="text-cyan-400 font-semibold">Yashwanth H B</span>.<br/>
+            Type <span class="text-cyan-300 font-bold">help</span> to view available operations, or interact below.
+          </div>
+
+          <div class="space-y-1.5 text-slate-300">
+            <div><span class="text-cyan-400 font-semibold">yashwanth@github:~$</span> whoami</div>
+            <div class="text-slate-400 pl-4 border-l border-cyan-500/40 space-y-1 text-xs">
+              <p>👤 <strong>Yashwanth H B</strong> (National Hackathon Champion & ECE Engineer)</p>
+              <p>📍 Maharaja Institute of Technology, Mysore</p>
+              <p>🏆 1st Prize @ National Level Hackathon (Tamil Nadu) | 1st Prize @ Ethnotech Academy</p>
+              <p>🛡️ Core: Endpoint Threat Hunting, AppSec Knowledge Graphs, DevSecOps</p>
+            </div>
+          </div>
+
+          <!-- Dynamic Output Area -->
+          <div id="terminalOutput" class="space-y-3"></div>
+
+          <!-- Input line -->
+          <div class="flex items-center gap-2 pt-2">
+            <span class="text-cyan-400 font-bold font-mono">yashwanth@github:~$</span>
+            <input id="terminalInput" type="text" autocomplete="off" spellcheck="false" 
+                   class="flex-1 bg-transparent border-none outline-none font-mono text-xs sm:text-sm text-cyan-200 placeholder-slate-600 focus:ring-0" 
+                   placeholder="type a command (e.g. awards, projects, scan, contact)..." />
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNICAL STACK & WEAPONRY -->
+    <section id="skills" class="pt-4">
+      
+      <div class="mb-8">
+        <div class="text-cyan-400 font-mono text-xs uppercase tracking-widest">// SYSTEM CAPABILITIES</div>
+        <h2 class="text-3xl font-extrabold text-white tracking-tight mt-1">Technical Stack & Weaponry</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Category 1: Security -->
+        <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 glow-border space-y-4">
+          <div class="flex items-center gap-2 text-cyan-400 font-mono text-sm font-semibold">
+            <span>🛡️</span>
+            <span>Security & SOC</span>
+          </div>
+          <div class="flex flex-wrap gap-2 text-xs font-mono">
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">MITRE ATT&CK</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">Zero Trust</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">OWASP Top 10</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">Hardware Deception</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">Burp Suite</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">Wireshark</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">Semgrep</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">Trivy</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">Gitleaks</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">RSA / AES Cryptography</span>
+          </div>
+        </div>
+
+        <!-- Category 2: AI & ML -->
+        <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 glow-border space-y-4">
+          <div class="flex items-center gap-2 text-purple-400 font-mono text-sm font-semibold">
+            <span>🧠</span>
+            <span>AI / ML & Reasoning</span>
+          </div>
+          <div class="flex flex-wrap gap-2 text-xs font-mono">
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">AppSec Digital Twins</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">Knowledge Graphs</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">GLM-4 / Vision AI</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">Anomaly Classification</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">Keystroke Dynamics</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">Scikit-Learn</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">Natural Language NLP</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">LLM Reasoning Chains</span>
+          </div>
+        </div>
+
+        <!-- Category 3: Full Stack & Systems -->
+        <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 glow-border space-y-4">
+          <div class="flex items-center gap-2 text-emerald-400 font-mono text-sm font-semibold">
+            <span>⚡</span>
+            <span>Full-Stack & Systems</span>
+          </div>
+          <div class="flex flex-wrap gap-2 text-xs font-mono">
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">Python 3.11</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">TypeScript</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">JavaScript ESNext</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">FastAPI</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">React.js</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">TanStack Start</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">Tailwind CSS</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">Docker</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">Linux / Kali / Bash</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-200">Polygon Blockchain</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- CONTACT / HANDSHAKE -->
+    <section id="contact" class="pt-4">
+      
+      <div class="rounded-3xl bg-slate-900 border border-amber-500/30 p-8 sm:p-12 text-center relative overflow-hidden glow-border">
+        
+        <div class="max-w-2xl mx-auto space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-950 text-amber-400 font-mono text-xs border border-amber-800">
+            <span>COMMUNICATION CHANNELS SECURE</span>
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Initiate An Encrypted Handshake
+          </h2>
+
+          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+            Interested in collaborating on <strong class="text-white">autonomous cybersecurity</strong>, <strong class="text-white">AI application security</strong>, hackathons, or high-throughput engineering projects? My communication channels are open.
+          </p>
+
+          <!-- Email Copy Card -->
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+            <div class="px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-cyan-300 font-mono text-xs sm:text-sm flex items-center gap-3">
+              <span id="emailText">yashwanthhb18@gmail.com</span>
+              <button id="copyEmailBtn" class="text-slate-400 hover:text-white transition-colors text-xs font-sans px-2 py-1 rounded bg-slate-800 hover:bg-slate-700">
+                Copy
+              </button>
+            </div>
+            
+            <a href="mailto:yashwanthhb18@gmail.com" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-cyan-500 hover:from-amber-400 hover:to-cyan-400 text-slate-950 font-mono font-bold text-xs sm:text-sm tracking-wide transition-all shadow-[0_0_20px_rgba(245,158,11,0.4)]">
+              Send Email Direct →
+            </a>
+          </div>
+
+          <!-- Social Matrix -->
+          <div class="pt-6 flex items-center justify-center gap-6 text-xs font-mono text-slate-400">
+            <a href="https://github.com/yashuhb18" target="_blank" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+              <span>GitHub: @yashuhb18</span>
+            </a>
+            <span>•</span>
+            <a href="https://haxrl8.vercel.app" target="_blank" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+              <span>HAXLR8 3.0</span>
+            </a>
+            <span>•</span>
+            <span class="text-slate-500">MIT Mysore (ECE)</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800/80 bg-[#030712] relative z-10 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500">
+      <div>
+        <span>© 2026 <strong>Yashwanth H B</strong>. National Hackathon Winner • Zero-Trust Architecture.</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        <span>ALL SYSTEMS OPERATIONAL // COMMIT STREAM: ACTIVE</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT: Particles & Gamified Commit Engine & Terminal -->
+  <script>
+    // 1. Particle Canvas Network
+    (function initParticles() {
+      const canvas = document.getElementById('particleCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width = canvas.width = window.innerWidth;
+      let height = canvas.height = window.innerHeight;
+      
+      const particles = [];
+      const particleCount = Math.floor(Math.min(width, 1200) / 22);
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.45,
+          vy: (Math.random() - 0.5) * 0.45,
+          radius: Math.random() * 1.5 + 0.8
+        });
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < 0) p.x = width;
+          if (p.x > width) p.x = 0;
+          if (p.y < 0) p.y = height;
+          if (p.y > height) p.y = 0;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(56, 189, 248, 0.4)';
+          ctx.fill();
+
+          for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+            if (dist < 110) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = `rgba(56, 189, 248, ${0.15 * (1 - dist / 110)})`;
+              ctx.lineWidth = 0.6;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      animate();
+    })();
+
+    // 2. REAL-TIME GAMIFIED COMMIT STREAM ENGINE (1 COMMIT / SECOND)
+    (function initGamifiedCommitEngine() {
+      const grid = document.getElementById('gridContainer');
+      const countDisplay = document.getElementById('commitCountDisplay');
+      const comboDisplay = document.getElementById('comboDisplay');
+      const xpDisplay = document.getElementById('xpDisplay');
+      const streamLogs = document.getElementById('commitStreamLogs');
+      const turboBtn = document.getElementById('turboBtn');
+      const pauseBtn = document.getElementById('pauseBtn');
+      const snakeBtn = document.getElementById('snakeModeBtn');
+      const streamRateDisplay = document.getElementById('streamRateDisplay');
+
+      if (!grid) return;
+
+      // Realistic messages from Yashwanth's actual repos
+      const sampleCommits = [
+        { repo: 'PHANTOOM', msg: 'Hardened hardware USB probe hook & honeypot trigger', xp: 180 },
+        { repo: 'CyberTwin', msg: 'AI knowledge graph resolved attack path CVE-2026-4401', xp: 240 },
+        { repo: 'JanDarpan', msg: 'Indexed 45 new Karnataka/Tamil Nadu welfare schemes', xp: 190 },
+        { repo: 'JanDarpan', msg: 'Polygon ledger anchored forensic vision audit block', xp: 210 },
+        { repo: 'RoomiFY', msg: 'Optimized real-time socket cluster for roommate match', xp: 160 },
+        { repo: 'Haxrl8', msg: 'Dispatched national hackathon schedule notification queue', xp: 150 },
+        { repo: 'MediLink', msg: 'Encrypted patient tele-consultation data packet stream', xp: 175 },
+        { repo: 'ai-keylogger', msg: 'Trained keystroke anomaly classifier on memory hooks', xp: 220 },
+        { repo: 'devsecops', msg: 'Enforced zero-trust CI/CD vulnerability gate check', xp: 195 }
+      ];
+
+      const levels = [
+        'bg-slate-900 border-slate-800',
+        'bg-cyan-950 border-cyan-800',
+        'bg-cyan-800 border-cyan-700',
+        'bg-cyan-500 border-cyan-400',
+        'bg-amber-400 border-amber-300'
+      ];
+
+      let totalCommits = 1492;
+      let combo = 48;
+      let xp = 94620;
+      let isPaused = false;
+      let isTurbo = false;
+      let streamIntervalMs = 1000;
+      let timer = null;
+      const cells = [];
+      const totalCells = 52 * 7; // 364 cells
+
+      // Generate the initial FULL grid (no empty spots!)
+      for (let i = 0; i < totalCells; i++) {
+        const cell = document.createElement('div');
+        // distribute rich vibrant levels
+        const rand = Math.random();
+        let lvlIndex = 1;
+        if (rand > 0.85) lvlIndex = 4;
+        else if (rand > 0.6) lvlIndex = 3;
+        else if (rand > 0.3) lvlIndex = 2;
+        else if (rand > 0.08) lvlIndex = 1;
+        else lvlIndex = 0;
+
+        cell.className = `w-3 h-3 rounded-[3px] border cursor-pointer commit-cell ${levels[lvlIndex]}`;
+        cell.dataset.index = i;
+        cell.dataset.level = lvlIndex;
+        cell.title = `Cell #${i + 1}: ${lvlIndex * 3 + 1} commits`;
+
+        // Click to manually commit and game-play!
+        cell.addEventListener('click', () => {
+          triggerCommitOnCell(cell, { repo: 'UserHandshake', msg: 'Interactive manual cyber commit triggered!', xp: 300 });
+        });
+
+        grid.appendChild(cell);
+        cells.push(cell);
+      }
+
+      function triggerCommitOnCell(cell, customData) {
+        totalCommits++;
+        combo++;
+        const data = customData || sampleCommits[Math.floor(Math.random() * sampleCommits.length)];
+        xp += data.xp;
+
+        // Visual flash & upgrade
+        cell.classList.remove('commit-flash');
+        void cell.offsetWidth; // trigger reflow
+        cell.classList.add('commit-flash');
+        cell.className = `w-3 h-3 rounded-[3px] border cursor-pointer commit-cell ${levels[4]} commit-flash`;
+
+        // Update displays
+        if (countDisplay) countDisplay.innerText = totalCommits.toLocaleString();
+        if (comboDisplay) comboDisplay.innerText = `${combo}x 🔥`;
+        if (xpDisplay) xpDisplay.innerText = `${xp.toLocaleString()} XP`;
+
+        // Log entry
+        if (streamLogs) {
+          const now = new Date();
+          const timeStr = now.toTimeString().split(' ')[0];
+          const hash = Math.random().toString(16).substring(2, 9);
+          
+          const logItem = document.createElement('div');
+          logItem.className = 'flex items-center gap-2 text-[11px] truncate animate-fadeIn';
+          logItem.innerHTML = `
+            <span class="text-slate-500">${timeStr}</span>
+            <span class="text-cyan-400 font-bold">${hash}</span>
+            <span class="px-1.5 py-0.2 rounded bg-slate-900 border border-slate-800 text-amber-300 text-[10px]">[${data.repo}]</span>
+            <span class="text-slate-300 truncate">${data.msg}</span>
+            <span class="text-emerald-400 font-bold ml-auto">+${data.xp} XP</span>
+          `;
+
+          streamLogs.insertBefore(logItem, streamLogs.firstChild);
+          if (streamLogs.children.length > 5) {
+            streamLogs.removeChild(streamLogs.lastChild);
+          }
+        }
+      }
+
+      // One commit every second loop
+      function runLoop() {
+        if (!isPaused) {
+          // Focus updates mostly on rightmost active weeks
+          const recentThreshold = Math.floor(cells.length * 0.65);
+          const randIndex = Math.floor(recentThreshold + Math.random() * (cells.length - recentThreshold));
+          const targetCell = cells[randIndex] || cells[cells.length - 1];
+          triggerCommitOnCell(targetCell);
+        }
+        timer = setTimeout(runLoop, streamIntervalMs);
+      }
+
+      timer = setTimeout(runLoop, streamIntervalMs);
+
+      // Turbo / Overclock Button
+      if (turboBtn) {
+        turboBtn.addEventListener('click', () => {
+          isTurbo = !isTurbo;
+          if (isTurbo) {
+            streamIntervalMs = 200; // 5 commits/sec!
+            turboBtn.classList.add('bg-cyan-500', 'text-slate-950', 'font-bold');
+            turboBtn.classList.remove('bg-slate-900', 'text-cyan-300');
+            turboBtn.innerText = '⚡ TURBO ACTIVE (5x)';
+            if (streamRateDisplay) streamRateDisplay.innerText = 'Rate: 5 commits / sec • Overclocked';
+          } else {
+            streamIntervalMs = 1000;
+            turboBtn.classList.remove('bg-cyan-500', 'text-slate-950', 'font-bold');
+            turboBtn.classList.add('bg-slate-900', 'text-cyan-300');
+            turboBtn.innerText = '⚡ OVERCLOCK (5x)';
+            if (streamRateDisplay) streamRateDisplay.innerText = 'Rate: 1 commit / sec • 100% Filled';
+          }
+        });
+      }
+
+      // Pause Button
+      if (pauseBtn) {
+        pauseBtn.addEventListener('click', () => {
+          isPaused = !isPaused;
+          pauseBtn.innerText = isPaused ? '▶ Resume' : '❚❚ Pause';
+          pauseBtn.classList.toggle('text-emerald-400', isPaused);
+        });
+      }
+
+      // Snake Trail Button
+      if (snakeBtn) {
+        let snakeActive = false;
+        snakeBtn.addEventListener('click', () => {
+          snakeActive = !snakeActive;
+          snakeBtn.classList.toggle('bg-emerald-500', snakeActive);
+          snakeBtn.classList.toggle('text-slate-950', snakeActive);
+          if (snakeActive) {
+            let snakePos = 0;
+            const snakeInterval = setInterval(() => {
+              if (!snakeActive) {
+                clearInterval(snakeInterval);
+                return;
+              }
+              const cell = cells[snakePos % cells.length];
+              triggerCommitOnCell(cell, { repo: 'SnakeBot', msg: `Snake devoured block #${snakePos}`, xp: 100 });
+              snakePos += 7; // jump to next column
+              if (snakePos >= cells.length) snakePos = (snakePos % 7) + 1;
+            }, 120);
+          }
+        });
+      }
+
+    })();
+
+    // 3. Interactive Terminal Simulator
+    (function initTerminal() {
+      const input = document.getElementById('terminalInput');
+      const output = document.getElementById('terminalOutput');
+      const body = document.getElementById('terminalBody');
+      const clearBtn = document.getElementById('clearTerminalBtn');
+
+      if (!input || !output) return;
+
+      const commands = {
+        help: `
+Available commands:
+  • <span class="text-amber-300">awards</span>       : View all National & State Hackathon victories
+  • <span class="text-cyan-300">whoami</span>       : Inspect author credentials & identity
+  • <span class="text-cyan-300">projects</span>     : List flagship security & software arsenal
+  • <span class="text-cyan-300">skills</span>       : Display full technical capabilities
+  • <span class="text-cyan-300">scan</span>         : Run simulated MITRE zero-trust endpoint scan
+  • <span class="text-cyan-300">contact</span>      : Output encrypted communication coordinates
+  • <span class="text-cyan-300">sudo hack</span>    : Elevate privileges... if you dare
+  • <span class="text-cyan-300">clear</span>        : Clean terminal screen
+`,
+        awards: `
+<div class="space-y-1.5 text-slate-300">
+  <div>🥇 <strong class="text-amber-400">1st Prize (National Champion)</strong>: JanDarpan AI @ Dhanalakshmi Srinivasan College, Tamil Nadu</div>
+  <div>🥇 <strong class="text-emerald-400">1st Prize</strong>: RoomiFY Platform @ Inter-College Hackathon by Ethnotech Academy</div>
+  <div>🥉 <strong class="text-purple-400">2nd Runner Up (State Level)</strong>: CyberTwin @ CIT Engineering College, Mandya</div>
+  <div>🎖️ <strong class="text-cyan-400">National Finalist & Shortlisted</strong>: PHANTOM @ D.Y. Patil College of Engineering, Maharashtra</div>
+</div>
+`,
+        whoami: `
+<div class="border-l-2 border-amber-400 pl-3 space-y-1 text-slate-300">
+  <p><strong>NAME:</strong> Yashwanth H B</p>
+  <p><strong>HONORS:</strong> 1st Prize National Champion (TN) • 1st Prize Ethnotech • 2nd RU CIT Mandya</p>
+  <p><strong>ROLE:</strong> Cybersecurity Architect & AI Systems Developer</p>
+  <p><strong>INSTITUTION:</strong> Maharaja Institute of Technology (MIT), Mysore (ECE)</p>
+  <p><strong>FOCUS:</strong> Zero-Trust Hardware Deception, AI AppSec Digital Twins, DevSecOps</p>
+</div>
+`,
+        projects: `
+<div class="space-y-2 text-slate-300">
+  <div>🏛️ <strong class="text-amber-300">JanDarpan AI</strong>: 1st Prize National Champion @ Tamil Nadu (GLM-4 / Polygon Blockchain)</div>
+  <div>🛡️ <strong class="text-cyan-300">PHANTOM</strong>: Shortlisted National Finalist @ DY Patil Maharashtra (Python/FastAPI/React)</div>
+  <div>🧠 <strong class="text-purple-300">CyberTwin</strong>: 2nd Runner Up State Hackathon @ CIT Mandya (TypeScript/TanStack Start)</div>
+  <div>🏠 <strong class="text-emerald-300">RoomiFY</strong>: 1st Prize Winner @ Ethnotech Academy (<a href="https://github.com/yashuhb18/RoomiFY" target="_blank" class="text-cyan-400 underline">repo</a>)</div>
+  <div>🚀 <strong class="text-pink-300">HAXLR8 3.0</strong>: National Hackathon Event Portal (<a href="https://haxrl8.vercel.app" target="_blank" class="text-cyan-400 underline">haxrl8.vercel.app</a>)</div>
+  <div>🩺 <strong class="text-blue-300">MediLink</strong>: Secure Telehealth Platform (<a href="https://medi-link-six-snowy.vercel.app" target="_blank" class="text-cyan-400 underline">medi-link</a>)</div>
+</div>
+`,
+        skills: `
+<div class="space-y-1 text-slate-300">
+  <div>• <strong class="text-cyan-300">Security:</strong> MITRE ATT&CK, Zero Trust, USB Deception, Burp Suite, Wireshark, Semgrep, Trivy</div>
+  <div>• <strong class="text-purple-300">AI / ML:</strong> AppSec Knowledge Graphs, GLM-4 Vision, Anomaly Classifiers, Scikit-Learn</div>
+  <div>• <strong class="text-emerald-300">Full-Stack:</strong> Python, TypeScript, JavaScript, FastAPI, React, TanStack Start, Node.js</div>
+  <div>• <strong class="text-blue-300">Cloud / DevOps:</strong> Docker, CI/CD DevSecOps, Linux (Kali/Arch), Vercel, Polygon Ledger</div>
+</div>
+`,
+        scan: `
+<div class="text-cyan-400 font-mono space-y-1">
+  <p>[+] Initializing sub-second endpoint heuristic scan...</p>
+  <p>[+] Checking USB peripheral descriptor trust boundaries... <span class="text-emerald-400">[PASS: ZERO-TRUST]</span></p>
+  <p>[+] Auditing AppSec AST syntax tree against OWASP Top 10... <span class="text-emerald-400">[NO BREACH DETECTED]</span></p>
+  <p>[+] Verifying Polygon ledger cryptographic hashes... <span class="text-emerald-400">[VERIFIED 0x7F...C4]</span></p>
+  <p class="text-white font-bold">[✓] STATUS: All perimeters secure. Resilience score: 99.8%</p>
+</div>
+`,
+        contact: `
+<div class="space-y-1 text-slate-300">
+  <p>📧 Email: <a href="mailto:yashwanthhb18@gmail.com" class="text-cyan-300 underline">yashwanthhb18@gmail.com</a></p>
+  <p>🐙 GitHub: <a href="https://github.com/yashuhb18" target="_blank" class="text-cyan-300 underline">https://github.com/yashuhb18</a></p>
+  <p>🌐 Hackathon: <a href="https://haxrl8.vercel.app" target="_blank" class="text-cyan-300 underline">https://haxrl8.vercel.app</a></p>
+</div>
+`,
+        'sudo hack': `
+<div class="text-red-400 font-mono">
+  <p>[!] WARNING: Unauthorized privilege escalation detected.</p>
+  <p>[!] Deploying PHANTOM honeytoken decoy matrix...</p>
+  <p>[!] Adversary trapped in isolated sandbox.</p>
+  <p class="text-amber-300 font-semibold">[✓] Nice try! Why not build something award-winning together instead?</p>
+</div>
+`
+      };
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          const raw = input.value.trim();
+          const cmd = raw.toLowerCase();
+          
+          if (!cmd) return;
+
+          // Render command line
+          const cmdElem = document.createElement('div');
+          cmdElem.innerHTML = `<span class="text-cyan-400 font-bold font-mono">yashwanth@github:~$</span> <span class="text-white font-mono">${escapeHtml(raw)}</span>`;
+          output.appendChild(cmdElem);
+
+          // Render response
+          const respElem = document.createElement('div');
+          respElem.className = 'text-xs text-slate-300';
+          
+          if (cmd === 'clear') {
+            output.innerHTML = '';
+          } else if (commands[cmd]) {
+            respElem.innerHTML = commands[cmd];
+            output.appendChild(respElem);
+          } else {
+            respElem.innerHTML = `<span class="text-red-400">Command not recognized: "${escapeHtml(raw)}". Type <span class="text-cyan-300 font-bold">help</span> to view available instructions.</span>`;
+            output.appendChild(respElem);
+          }
+
+          input.value = '';
+          body.scrollTop = body.scrollHeight;
+        }
+      });
+
+      clearBtn.addEventListener('click', () => {
+        output.innerHTML = '';
+        input.focus();
+      });
+
+      function escapeHtml(text) {
+        return text.replace(/[&<>"']/g, function(m) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
+        });
+      }
+    })();
+
+    // 4. Category Filter for Projects
+    (function initFilters() {
+      const buttons = document.querySelectorAll('.filter-btn');
+      const cards = document.querySelectorAll('.project-card');
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          buttons.forEach(b => {
+            b.classList.remove('bg-cyan-500', 'text-slate-950', 'font-bold');
+            b.classList.add('bg-slate-900', 'text-slate-300');
+          });
+
+          btn.classList.remove('bg-slate-900', 'text-slate-300');
+          btn.classList.add('bg-cyan-500', 'text-slate-950', 'font-bold');
+
+          const filter = btn.getAttribute('data-filter');
+
+          cards.forEach(card => {
+            const categories = card.getAttribute('data-category').split(' ');
+            if (filter === 'all' || categories.includes(filter)) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    })();
+
+    // 5. Email Copy Interaction
+    (function initEmailCopy() {
+      const copyBtn = document.getElementById('copyEmailBtn');
+      const emailText = document.getElementById('emailText');
+
+      if (!copyBtn || !emailText) return;
+
+      copyBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(emailText.innerText).then(() => {
+          const original = copyBtn.innerText;
+          copyBtn.innerText = 'Copied!';
+          copyBtn.classList.add('text-cyan-400');
+          setTimeout(() => {
+            copyBtn.innerText = original;
+            copyBtn.classList.remove('text-cyan-400');
+          }, 2000);
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

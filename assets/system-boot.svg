@@ -1,0 +1,702 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%">
+  <defs>
+    <!-- Glow Filters -->
+    <filter id="glow-green" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="glow-green-intense" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4.5" result="blur1" />
+      <feGaussianBlur stdDeviation="1.5" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur1" />
+        <feMergeNode in="blur2" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="glow-red" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Gradients -->
+    <linearGradient id="scanline-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00d4ff" stop-opacity="0" />
+      <stop offset="20%" stop-color="#00d4ff" stop-opacity="0.35" />
+      <stop offset="50%" stop-color="#00ff41" stop-opacity="0.95" />
+      <stop offset="80%" stop-color="#00d4ff" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#00d4ff" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="box-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#111714" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#090d0b" stop-opacity="0.9" />
+    </linearGradient>
+
+    <linearGradient id="hud-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#101713" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#090e0b" stop-opacity="0.85" />
+    </linearGradient>
+
+    <!-- Top & Bottom Edge Vignette Gradients for Matrix Characters -->
+    <linearGradient id="vignette-top" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0a" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#0a0a0a" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="vignette-bottom" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0a" stop-opacity="0" />
+      <stop offset="100%" stop-color="#0a0a0a" stop-opacity="0.95" />
+    </linearGradient>
+
+    <!-- Subtle Grid Pattern -->
+    <pattern id="cyber-grid" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M 25 0 L 0 0 0 25" fill="none" stroke="#111111" stroke-width="0.75" />
+      <circle cx="0" cy="0" r="0.7" fill="#181f1a" />
+    </pattern>
+
+    <!-- CRT Raster Scanline Pattern -->
+    <pattern id="crt-raster" width="100" height="3" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="100" y2="0" stroke="#000000" stroke-width="0.8" opacity="0.3" />
+    </pattern>
+  </defs>
+
+  <style>
+    /* Global Typography */
+    text {
+      font-family: 'Courier New', Monaco, Consolas, monospace;
+      user-select: none;
+    }
+
+    /* 1. Scanline Animation */
+    @keyframes scanline {
+      0% {
+        transform: translateY(-10px);
+        opacity: 0.15;
+      }
+      10% {
+        opacity: 0.85;
+      }
+      90% {
+        opacity: 0.85;
+      }
+      100% {
+        transform: translateY(415px);
+        opacity: 0.15;
+      }
+    }
+    .scanline-beam {
+      animation: scanline 4s linear infinite;
+    }
+
+    /* 2. Matrix Falling Characters Animation */
+    @keyframes matrixFall {
+      0% {
+        transform: translateY(-190px);
+        opacity: 0;
+      }
+      15% {
+        opacity: 0.35;
+      }
+      85% {
+        opacity: 0.35;
+      }
+      100% {
+        transform: translateY(390px);
+        opacity: 0;
+      }
+    }
+    .matrix-col {
+      animation: matrixFall 3.8s linear infinite;
+      font-size: 9px;
+      letter-spacing: 1px;
+      fill: #00ff41;
+    }
+    .m-col-1 { animation-delay: 0s; animation-duration: 3.4s; }
+    .m-col-2 { animation-delay: 1.1s; animation-duration: 4.1s; }
+    .m-col-3 { animation-delay: 2.3s; animation-duration: 3.7s; }
+    .m-col-4 { animation-delay: 0.5s; animation-duration: 3.9s; }
+    .m-col-5 { animation-delay: 1.7s; animation-duration: 4.3s; }
+    .m-col-6 { animation-delay: 2.7s; animation-duration: 3.5s; }
+
+    /* 3. Boot Sequence Text Staggered Fade In */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateX(-4px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    .boot-line-1 { animation: fadeIn 0.35s ease-out 0.2s forwards; opacity: 0; }
+    .boot-line-2 { animation: fadeIn 0.35s ease-out 0.6s forwards; opacity: 0; }
+    .boot-line-3 { animation: fadeIn 0.35s ease-out 1.0s forwards; opacity: 0; }
+    .boot-line-4 { animation: fadeIn 0.35s ease-out 1.4s forwards; opacity: 0; }
+    .boot-line-5 { animation: fadeIn 0.35s ease-out 1.8s forwards; opacity: 0; }
+    .boot-line-6 { animation: fadeIn 0.4s ease-out 2.2s forwards; opacity: 0; }
+
+    /* 4. Blinking Terminal Cursor */
+    @keyframes blink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    .cursor {
+      animation: blink 0.85s infinite 2.2s;
+      opacity: 0;
+    }
+
+    /* 5. Main Identity Group Reveal */
+    .identity-block {
+      animation: fadeIn 0.5s ease-out 2.4s forwards;
+      opacity: 0;
+    }
+
+    /* 6. Glitch Keyframes for Name Shadow Copies */
+    @keyframes glitch {
+      0%, 100% {
+        transform: translate(0, 0);
+        opacity: 0;
+      }
+      10% {
+        transform: translate(-2px, 1px);
+        opacity: 0.85;
+      }
+      12% {
+        transform: translate(2px, -1px);
+        opacity: 0.9;
+      }
+      14% {
+        transform: translate(0, 0);
+        opacity: 0;
+      }
+      48% {
+        transform: translate(0, 0);
+        opacity: 0;
+      }
+      50% {
+        transform: translate(-2px, -1px);
+        opacity: 0.85;
+      }
+      52% {
+        transform: translate(1px, 2px);
+        opacity: 0.8;
+      }
+      54% {
+        transform: translate(0, 0);
+        opacity: 0;
+      }
+      78% {
+        transform: translate(0, 0);
+        opacity: 0;
+      }
+      80% {
+        transform: translate(2px, 1px);
+        opacity: 0.8;
+      }
+      82% {
+        transform: translate(-1px, -1px);
+        opacity: 0.85;
+      }
+      84% {
+        transform: translate(0, 0);
+        opacity: 0;
+      }
+    }
+
+    @keyframes glitch-cyan {
+      0%, 100% {
+        transform: translate(0, 0);
+        opacity: 0;
+      }
+      20% {
+        transform: translate(0, 0);
+        opacity: 0;
+      }
+      22% {
+        transform: translate(2px, -1px);
+        opacity: 0.8;
+      }
+      24% {
+        transform: translate(-2px, 1.5px);
+        opacity: 0.85;
+      }
+      26% {
+        transform: translate(0, 0);
+        opacity: 0;
+      }
+      62% {
+        transform: translate(0, 0);
+        opacity: 0;
+      }
+      64% {
+        transform: translate(2.5px, 1px);
+        opacity: 0.9;
+      }
+      66% {
+        transform: translate(-1px, -1.5px);
+        opacity: 0.8;
+      }
+      68% {
+        transform: translate(0, 0);
+        opacity: 0;
+      }
+      90% {
+        transform: translate(-2px, 1px);
+        opacity: 0.75;
+      }
+      92% {
+        transform: translate(0, 0);
+        opacity: 0;
+      }
+    }
+
+    .glitch-shadow-red {
+      fill: #ff003c;
+      opacity: 0;
+      animation: glitch 2.8s infinite steps(2, start) 2.4s;
+    }
+
+    .glitch-shadow-cyan {
+      fill: #00d4ff;
+      opacity: 0;
+      animation: glitch-cyan 3.3s infinite steps(2, start) 2.4s;
+    }
+
+    /* 7. Pulse Animation for Status Indicators */
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: drop-shadow(0 0 3px #00ff41);
+      }
+      50% {
+        opacity: 0.3;
+        transform: scale(0.85);
+        filter: drop-shadow(0 0 0px #00ff41);
+      }
+    }
+    .pulse-dot {
+      animation: pulse 1.8s ease-in-out infinite;
+      transform-origin: center;
+      transform-box: fill-box;
+    }
+
+    /* 8. Scale In Animation for Stat Boxes */
+    @keyframes scaleIn {
+      0% {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    .stat-box {
+      animation: scaleIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 0;
+    }
+    .box-1 { animation-delay: 2.6s; transform-origin: 122px 345px; }
+    .box-2 { animation-delay: 2.8s; transform-origin: 307px 345px; }
+    .box-3 { animation-delay: 3.0s; transform-origin: 492px 345px; }
+    .box-4 { animation-delay: 3.2s; transform-origin: 677px 345px; }
+
+    /* Equalizer Waveform Bars */
+    @keyframes eqWave {
+      0%, 100% { height: 3px; }
+      50% { height: 16px; }
+    }
+    .eq-b1 { animation: eqWave 0.85s ease-in-out infinite 0.1s; }
+    .eq-b2 { animation: eqWave 1.15s ease-in-out infinite 0.3s; }
+    .eq-b3 { animation: eqWave 0.7s ease-in-out infinite 0.5s; }
+    .eq-b4 { animation: eqWave 1.35s ease-in-out infinite 0.2s; }
+    .eq-b5 { animation: eqWave 0.95s ease-in-out infinite 0.4s; }
+    .eq-b6 { animation: eqWave 1.05s ease-in-out infinite 0.6s; }
+  </style>
+
+  <!-- ========================================== -->
+  <!-- 1. BACKGROUND LAYER                       -->
+  <!-- ========================================== -->
+  <!-- Solid Cyberpunk Background -->
+  <rect width="800" height="400" fill="#0a0a0a" />
+
+  <!-- Animated Subtle Grid Pattern -->
+  <rect width="800" height="400" fill="url(#cyber-grid)" />
+
+  <!-- CRT Raster Scanlines -->
+  <rect width="800" height="400" fill="url(#crt-raster)" pointer-events="none" />
+
+  <!-- Matrix-style Falling Characters (Left & Right Edges) -->
+  <g id="matrix-streams">
+    <!-- Left Flank Streams -->
+    <text x="14" y="0" class="matrix-col m-col-1">
+      <tspan x="14" dy="0">0</tspan>
+      <tspan x="14" dy="12">1</tspan>
+      <tspan x="14" dy="12">X</tspan>
+      <tspan x="14" dy="12">9</tspan>
+      <tspan x="14" dy="12">F</tspan>
+      <tspan x="14" dy="12">A</tspan>
+      <tspan x="14" dy="12">7</tspan>
+      <tspan x="14" dy="12">3</tspan>
+      <tspan x="14" dy="12">0</tspan>
+      <tspan x="14" dy="12">1</tspan>
+      <tspan x="14" dy="12">B</tspan>
+      <tspan x="14" dy="12">C</tspan>
+      <tspan x="14" dy="12">4</tspan>
+      <tspan x="14" dy="12" fill="#e0e0e0">1</tspan>
+    </text>
+
+    <text x="24" y="0" class="matrix-col m-col-2">
+      <tspan x="24" dy="0">1</tspan>
+      <tspan x="24" dy="12">0</tspan>
+      <tspan x="24" dy="12">7</tspan>
+      <tspan x="24" dy="12">E</tspan>
+      <tspan x="24" dy="12">4</tspan>
+      <tspan x="24" dy="12">B</tspan>
+      <tspan x="24" dy="12">1</tspan>
+      <tspan x="24" dy="12">0</tspan>
+      <tspan x="24" dy="12">F</tspan>
+      <tspan x="24" dy="12">9</tspan>
+      <tspan x="24" dy="12">D</tspan>
+      <tspan x="24" dy="12">2</tspan>
+      <tspan x="24" dy="12">5</tspan>
+      <tspan x="24" dy="12" fill="#e0e0e0">0</tspan>
+    </text>
+
+    <text x="34" y="0" class="matrix-col m-col-3">
+      <tspan x="34" dy="0">8</tspan>
+      <tspan x="34" dy="12">B</tspan>
+      <tspan x="34" dy="12">1</tspan>
+      <tspan x="34" dy="12">0</tspan>
+      <tspan x="34" dy="12">C</tspan>
+      <tspan x="34" dy="12">4</tspan>
+      <tspan x="34" dy="12">F</tspan>
+      <tspan x="34" dy="12">E</tspan>
+      <tspan x="34" dy="12">3</tspan>
+      <tspan x="34" dy="12">1</tspan>
+      <tspan x="34" dy="12">7</tspan>
+      <tspan x="34" dy="12">A</tspan>
+      <tspan x="34" dy="12">9</tspan>
+      <tspan x="34" dy="12" fill="#e0e0e0">X</tspan>
+    </text>
+
+    <!-- Right Flank Streams -->
+    <text x="764" y="0" class="matrix-col m-col-4">
+      <tspan x="764" dy="0">F</tspan>
+      <tspan x="764" dy="12">9</tspan>
+      <tspan x="764" dy="12">A</tspan>
+      <tspan x="764" dy="12">1</tspan>
+      <tspan x="764" dy="12">0</tspan>
+      <tspan x="764" dy="12">E</tspan>
+      <tspan x="764" dy="12">8</tspan>
+      <tspan x="764" dy="12">B</tspan>
+      <tspan x="764" dy="12">3</tspan>
+      <tspan x="764" dy="12">5</tspan>
+      <tspan x="764" dy="12">C</tspan>
+      <tspan x="764" dy="12">0</tspan>
+      <tspan x="764" dy="12">1</tspan>
+      <tspan x="764" dy="12" fill="#e0e0e0">7</tspan>
+    </text>
+
+    <text x="775" y="0" class="matrix-col m-col-5">
+      <tspan x="775" dy="0">0</tspan>
+      <tspan x="775" dy="12">1</tspan>
+      <tspan x="775" dy="12">1</tspan>
+      <tspan x="775" dy="12">0</tspan>
+      <tspan x="775" dy="12">D</tspan>
+      <tspan x="775" dy="12">4</tspan>
+      <tspan x="775" dy="12">F</tspan>
+      <tspan x="775" dy="12">F</tspan>
+      <tspan x="775" dy="12">2</tspan>
+      <tspan x="775" dy="12">9</tspan>
+      <tspan x="775" dy="12">B</tspan>
+      <tspan x="775" dy="12">0</tspan>
+      <tspan x="775" dy="12">A</tspan>
+      <tspan x="775" dy="12" fill="#e0e0e0">F</tspan>
+    </text>
+
+    <text x="786" y="0" class="matrix-col m-col-6">
+      <tspan x="786" dy="0">1</tspan>
+      <tspan x="786" dy="12">0</tspan>
+      <tspan x="786" dy="12">7</tspan>
+      <tspan x="786" dy="12">B</tspan>
+      <tspan x="786" dy="12">A</tspan>
+      <tspan x="786" dy="12">3</tspan>
+      <tspan x="786" dy="12">C</tspan>
+      <tspan x="786" dy="12">1</tspan>
+      <tspan x="786" dy="12">E</tspan>
+      <tspan x="786" dy="12">0</tspan>
+      <tspan x="786" dy="12">F</tspan>
+      <tspan x="786" dy="12">4</tspan>
+      <tspan x="786" dy="12">9</tspan>
+      <tspan x="786" dy="12" fill="#e0e0e0">1</tspan>
+    </text>
+  </g>
+
+  <!-- Edge Fade Vignettes (Soft entry/exit for Matrix code) -->
+  <rect x="0" y="0" width="800" height="30" fill="url(#vignette-top)" pointer-events="none" />
+  <rect x="0" y="375" width="800" height="25" fill="url(#vignette-bottom)" pointer-events="none" />
+
+  <!-- Horizontal Scan Line Beam -->
+  <g class="scanline-beam" pointer-events="none">
+    <line x1="0" y1="0" x2="800" y2="0" stroke="url(#scanline-grad)" stroke-width="2.5" filter="url(#glow-green)" />
+    <line x1="0" y1="-1" x2="800" y2="-1" stroke="#ffffff" stroke-width="0.75" opacity="0.6" />
+    <line x1="0" y1="2" x2="800" y2="2" stroke="#00ff41" stroke-width="3" opacity="0.15" />
+  </g>
+
+  <!-- ========================================== -->
+  <!-- 6. CORNER DECORATIONS                     -->
+  <!-- ========================================== -->
+  <!-- Top-Left Corner -->
+  <path d="M 8 20 L 8 8 L 20 8" fill="none" stroke="#1a1a1a" stroke-width="1.5" />
+  <path d="M 12 16 L 12 12 L 16 12" fill="none" stroke="#00ff41" stroke-width="1" opacity="0.4" />
+  <text x="24" y="18" fill="#333333" font-size="8">[0,0]</text>
+
+  <!-- Top-Right Corner -->
+  <path d="M 780 8 L 792 8 L 792 20" fill="none" stroke="#1a1a1a" stroke-width="1.5" />
+  <path d="M 784 12 L 788 12 L 788 16" fill="none" stroke="#00ff41" stroke-width="1" opacity="0.4" />
+  <text x="744" y="18" fill="#333333" font-size="8">[800,0]</text>
+
+  <!-- Bottom-Left Corner -->
+  <path d="M 8 380 L 8 392 L 20 392" fill="none" stroke="#1a1a1a" stroke-width="1.5" />
+  <path d="M 12 384 L 12 388 L 16 388" fill="none" stroke="#00ff41" stroke-width="1" opacity="0.4" />
+  <text x="24" y="388" fill="#333333" font-size="8">[0,400]</text>
+
+  <!-- Bottom-Right Corner -->
+  <path d="M 780 392 L 792 392 L 792 380" fill="none" stroke="#1a1a1a" stroke-width="1.5" />
+  <path d="M 784 388 L 788 388 L 788 384" fill="none" stroke="#00ff41" stroke-width="1" opacity="0.4" />
+  <text x="724" y="388" fill="#333333" font-size="8">[800,400]</text>
+
+  <!-- ========================================== -->
+  <!-- 2. TOP STATUS BAR (y: 15-35)              -->
+  <!-- ========================================== -->
+  <g id="top-status-bar">
+    <!-- Left: System Version -->
+    <text x="56" y="24" fill="#555555" font-size="10" font-weight="bold" letter-spacing="0.5">SYSTEM://PHANTOM.OS v6.6.6</text>
+
+    <!-- Center: Timestamp -->
+    <text x="400" y="24" fill="#444444" font-size="10" font-weight="bold" text-anchor="middle" letter-spacing="1">SAT 18 OCT 2026 // 00:00:00 UTC</text>
+
+    <!-- Right: Secure Channel with Pulsing Dot -->
+    <text x="694" y="24" fill="#555555" font-size="10" font-weight="bold" text-anchor="end" letter-spacing="0.5">SECURE CHANNEL</text>
+    <circle cx="704" cy="21" r="3.5" fill="#00ff41" class="pulse-dot" />
+
+    <!-- Thin Separator Line below status bar -->
+    <line x1="20" y1="36" x2="780" y2="36" stroke="#1a1a1a" stroke-width="1" />
+    <line x1="20" y1="36" x2="65" y2="36" stroke="#00ff41" stroke-width="1.2" opacity="0.6" />
+    <line x1="735" y1="36" x2="780" y2="36" stroke="#00d4ff" stroke-width="1.2" opacity="0.6" />
+    <rect x="390" y="35" width="20" height="2" fill="#00ff41" opacity="0.3" />
+  </g>
+
+  <!-- ========================================== -->
+  <!-- 3. BOOT SEQUENCE TEXT (y: 50-150)         -->
+  <!-- ========================================== -->
+  <g id="boot-sequence">
+    <!-- Terminal Lines with 0.4s Staggered Fade In -->
+    <text x="52" y="62" class="boot-line-1" fill="#00ff41" font-size="11" letter-spacing="0.5">&gt; Initializing neural interface.............. <tspan fill="#00ff41" font-weight="bold">[OK]</tspan></text>
+    <text x="52" y="78" class="boot-line-2" fill="#00ff41" font-size="11" letter-spacing="0.5">&gt; Loading identity matrix................... <tspan fill="#00ff41" font-weight="bold">[OK]</tspan></text>
+    <text x="52" y="94" class="boot-line-3" fill="#00ff41" font-size="11" letter-spacing="0.5">&gt; Bypassing firewall protocols.............. <tspan fill="#00ff41" font-weight="bold">[OK]</tspan></text>
+    <text x="52" y="110" class="boot-line-4" fill="#00ff41" font-size="11" letter-spacing="0.5">&gt; Authenticating biometric scan............. <tspan fill="#00ff41" font-weight="bold">[OK]</tspan></text>
+    <text x="52" y="126" class="boot-line-5" fill="#00ff41" font-size="11" letter-spacing="0.5">&gt; Decrypting classified profile............. <tspan fill="#00ff41" font-weight="bold">[OK]</tspan></text>
+    
+    <!-- Line 6: ACCESS GRANTED with glow + Blinking Cursor -->
+    <text x="52" y="146" class="boot-line-6" fill="#ff003c" font-size="13.5" font-weight="bold" letter-spacing="1" filter="url(#glow-red)">&gt; ACCESS GRANTED<tspan class="cursor" fill="#ff003c"> █</tspan></text>
+  </g>
+
+  <!-- Upper-Right Telemetry Monitor Box (y: 48-150) -->
+  <g id="telemetry-box" class="boot-line-3">
+    <!-- Panel Background & Border -->
+    <rect x="525" y="48" width="235" height="102" rx="3" fill="url(#hud-grad)" stroke="#1a1a1a" stroke-width="1" />
+    
+    <!-- Corner L-brackets on Telemetry Panel -->
+    <path d="M 525 56 L 525 48 L 533 48" fill="none" stroke="#00ff41" stroke-width="1" opacity="0.4" />
+    <path d="M 752 48 L 760 48 L 760 56" fill="none" stroke="#00ff41" stroke-width="1" opacity="0.4" />
+    <path d="M 525 142 L 525 150 L 533 150" fill="none" stroke="#00ff41" stroke-width="1" opacity="0.4" />
+    <path d="M 752 150 L 760 150 L 760 142" fill="none" stroke="#00ff41" stroke-width="1" opacity="0.4" />
+
+    <!-- Telemetry Header -->
+    <rect x="525" y="48" width="235" height="18" fill="#141a17" opacity="0.6" />
+    <text x="535" y="61" fill="#555555" font-size="8.5" font-weight="bold" letter-spacing="1">TELEMETRY // BUFFER 0x7F_DAEMON</text>
+    <circle cx="748" cy="57" r="2.5" fill="#00d4ff" opacity="0.8" />
+
+    <!-- Telemetry Readouts -->
+    <text x="535" y="75" fill="#666666" font-size="8.5">KERNEL: <tspan fill="#00ff41">v6.6.6-CYBER-LTS</tspan></text>
+    <text x="535" y="87" fill="#666666" font-size="8.5">CIPHER: <tspan fill="#00d4ff">ECDSA-521 // AES-GCM</tspan></text>
+    <text x="535" y="99" fill="#666666" font-size="8.5">PROX_NODE: <tspan fill="#e0e0e0">TOR-RELAY-09</tspan></text>
+    <text x="535" y="111" fill="#666666" font-size="8.5">QUANTUM_LINK: <tspan fill="#00ff41">STABLE (1.2ms)</tspan></text>
+
+    <!-- Animated Frequency Bars in Telemetry Box -->
+    <g transform="translate(535, 126)">
+      <text x="0" y="9" fill="#444444" font-size="7.5">SIG_FREQ</text>
+      <rect x="62" y="7" width="3" height="4" fill="#00ff41" class="eq-b1" transform="scale(1,-1) translate(0,-7)" opacity="0.85" />
+      <rect x="69" y="7" width="3" height="4" fill="#00ff41" class="eq-b2" transform="scale(1,-1) translate(0,-7)" opacity="0.85" />
+      <rect x="76" y="7" width="3" height="4" fill="#00ff41" class="eq-b3" transform="scale(1,-1) translate(0,-7)" opacity="0.85" />
+      <rect x="83" y="7" width="3" height="4" fill="#00d4ff" class="eq-b4" transform="scale(1,-1) translate(0,-7)" opacity="0.85" />
+      <rect x="90" y="7" width="3" height="4" fill="#00d4ff" class="eq-b5" transform="scale(1,-1) translate(0,-7)" opacity="0.85" />
+      <rect x="97" y="7" width="3" height="4" fill="#00ff41" class="eq-b6" transform="scale(1,-1) translate(0,-7)" opacity="0.85" />
+      <rect x="104" y="7" width="3" height="4" fill="#00ff41" class="eq-b2" transform="scale(1,-1) translate(0,-7)" opacity="0.85" />
+      <rect x="111" y="7" width="3" height="4" fill="#00ff41" class="eq-b1" transform="scale(1,-1) translate(0,-7)" opacity="0.85" />
+      <text x="130" y="9" fill="#00ff41" font-size="7.5" opacity="0.7">100% OK</text>
+    </g>
+  </g>
+
+  <!-- Mid-Section Horizontal Divider Line -->
+  <line x1="20" y1="162" x2="780" y2="162" stroke="#1a1a1a" stroke-width="1" />
+  <line x1="20" y1="162" x2="90" y2="162" stroke="#00d4ff" stroke-width="1.2" opacity="0.7" />
+  <line x1="490" y1="162" x2="520" y2="162" stroke="#00ff41" stroke-width="1" opacity="0.5" />
+  <text x="755" y="160" fill="#333333" font-size="8" text-anchor="end" letter-spacing="1">SECTION // IDENTITY_MATRIX</text>
+
+  <!-- ========================================== -->
+  <!-- 4. MAIN IDENTITY BLOCK (y: 170-300)       -->
+  <!-- ========================================== -->
+  <g id="main-identity" class="identity-block">
+    <!-- Tactical ID Panel Container (Left Side) -->
+    <path d="M 44 182 L 44 175 L 52 175" fill="none" stroke="#00ff41" stroke-width="1.2" opacity="0.6" />
+    <path d="M 44 285 L 44 292 L 52 292" fill="none" stroke="#00ff41" stroke-width="1.2" opacity="0.6" />
+
+    <!-- Name Label with CSS Glitch Animation -->
+    <!-- Red Glitch Shadow Copy -->
+    <text x="52" y="206" class="glitch-shadow-red" font-size="32" font-weight="900" letter-spacing="2">YASHWANTH H B</text>
+    <!-- Cyan Glitch Shadow Copy -->
+    <text x="52" y="206" class="glitch-shadow-cyan" font-size="32" font-weight="900" letter-spacing="2">YASHWANTH H B</text>
+    <!-- Primary Green Main Name with Text-Shadow Glow Effect -->
+    <text x="52" y="206" fill="#00ff41" font-size="32" font-weight="900" letter-spacing="2" filter="url(#glow-green-intense)">YASHWANTH H B</text>
+
+    <!-- Subtitle: Full Stack Architect // Cybersecurity Operative -->
+    <text x="52" y="233" fill="#00d4ff" font-size="14" font-weight="bold" letter-spacing="1" filter="url(#glow-cyan)">FULL STACK ARCHITECT // CYBERSECURITY OPERATIVE</text>
+
+    <!-- Institution Line -->
+    <text x="52" y="256" fill="#555555" font-size="11" letter-spacing="0.8">MAHARAJA INSTITUTE OF TECHNOLOGY, MYSORE</text>
+
+    <!-- Degree / Branch Line -->
+    <text x="52" y="274" fill="#444444" font-size="10" letter-spacing="0.5">ECE // Electronics &amp; Communication Engineering</text>
+
+    <!-- Mini Security Clearance Dossier Card (Right Side: y 172-295) -->
+    <g id="clearance-dossier" transform="translate(525, 172)">
+      <!-- Dossier Card Frame -->
+      <rect x="0" y="0" width="235" height="122" rx="3" fill="url(#hud-grad)" stroke="#1a1a1a" stroke-width="1" />
+      
+      <!-- Corner L-brackets on Dossier -->
+      <path d="M 0 8 L 0 0 L 8 0" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.5" />
+      <path d="M 227 0 L 235 0 L 235 8" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.5" />
+      <path d="M 0 114 L 0 122 L 8 122" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.5" />
+      <path d="M 227 122 L 235 122 L 235 114" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.5" />
+
+      <!-- Dossier Header -->
+      <rect x="0" y="0" width="235" height="20" fill="#151b18" opacity="0.7" />
+      <text x="10" y="14" fill="#ff003c" font-size="8.5" font-weight="bold" letter-spacing="0.5">[CLEARANCE: TOP SECRET]</text>
+      <text x="225" y="14" fill="#444444" font-size="7.5" text-anchor="end">LVL-5</text>
+
+      <!-- Operative Meta Details -->
+      <text x="10" y="36" fill="#777777" font-size="8.5">OPERATIVE_ID: <tspan fill="#e0e0e0" font-weight="bold">HB-18 // 0x9F</tspan></text>
+      <text x="10" y="49" fill="#777777" font-size="8.5">SPECIALTY: <tspan fill="#00d4ff">FULL_STACK &amp; SEC</tspan></text>
+      <text x="10" y="62" fill="#777777" font-size="8.5">NEURAL_SYNC: <tspan fill="#00ff41">99.88% OPTIMAL</tspan></text>
+      <text x="10" y="75" fill="#777777" font-size="8.5">THREAT_LEVEL: <tspan fill="#ffb800">ALPHA_OMEGA</tspan></text>
+      <text x="10" y="88" fill="#555555" font-size="8">HASH: SHA256::e8f9c...94a1</text>
+
+      <!-- Animated Rotating HUD Radar Reticle (Top-Right of Dossier) -->
+      <g transform="translate(182, 60)">
+        <!-- Outer Static Rings -->
+        <circle cx="0" cy="0" r="24" fill="none" stroke="#1a251e" stroke-width="1" />
+        <circle cx="0" cy="0" r="16" fill="none" stroke="#1d2d24" stroke-width="0.8" stroke-dasharray="2 2" />
+        <circle cx="0" cy="0" r="8" fill="none" stroke="#1a251e" stroke-width="0.8" />
+        <line x1="-25" y1="0" x2="25" y2="0" stroke="#1d2d24" stroke-width="0.75" />
+        <line x1="0" y1="-25" x2="0" y2="25" stroke="#1d2d24" stroke-width="0.75" />
+
+        <!-- Sweeping Radar Beam -->
+        <line x1="0" y1="0" x2="24" y2="0" stroke="#00ff41" stroke-width="1.5" opacity="0.8" filter="url(#glow-green)">
+          <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="3.5s" repeatCount="indefinite" />
+        </line>
+        <circle cx="9" cy="-11" r="2" fill="#ff003c" class="pulse-dot" />
+        <text x="0" y="32" fill="#00ff41" font-size="6.5" text-anchor="middle" opacity="0.7">RADAR_ACTIVE</text>
+      </g>
+
+      <!-- Bottom Status Bar inside Dossier -->
+      <line x1="10" y1="104" x2="225" y2="104" stroke="#1a1a1a" stroke-width="1" />
+      <text x="10" y="115" fill="#444444" font-size="7.5">AUTHENTICATED BY: PHANTOM_DAEMON_ROOT</text>
+      <circle cx="220" cy="112" r="2.5" fill="#00ff41" class="pulse-dot" />
+    </g>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- 5. BOTTOM STATS BAR (y: 315-375)          -->
+  <!-- ========================================== -->
+  <!-- Stat Box 1: Repos -->
+  <g class="stat-box box-1">
+    <rect x="40" y="318" width="165" height="54" rx="2" fill="url(#box-grad)" stroke="#1a1a1a" stroke-width="1" />
+    <!-- Corner L-brackets on Box 1 -->
+    <path d="M 40 324 L 40 318 L 46 318" fill="none" stroke="#00ff41" stroke-width="1" opacity="0.4" />
+    <path d="M 199 318 L 205 318 L 205 324" fill="none" stroke="#00ff41" stroke-width="1" opacity="0.4" />
+    <path d="M 40 366 L 40 372 L 46 372" fill="none" stroke="#00ff41" stroke-width="1" opacity="0.4" />
+    <path d="M 199 372 L 205 372 L 205 366" fill="none" stroke="#00ff41" stroke-width="1" opacity="0.4" />
+    
+    <text x="48" y="329" fill="#333333" font-size="7.5" font-weight="bold">[SYS.01]</text>
+    <text x="122" y="344" fill="#00ff41" font-size="22" font-weight="900" text-anchor="middle" filter="url(#glow-green)">31</text>
+    <text x="122" y="361" fill="#888888" font-size="9" text-anchor="middle" letter-spacing="1">REPOS</text>
+  </g>
+
+  <!-- Stat Box 2: Hackathons Won -->
+  <g class="stat-box box-2">
+    <rect x="225" y="318" width="165" height="54" rx="2" fill="url(#box-grad)" stroke="#1a1a1a" stroke-width="1" />
+    <!-- Corner L-brackets on Box 2 -->
+    <path d="M 225 324 L 225 318 L 231 318" fill="none" stroke="#ffb800" stroke-width="1" opacity="0.5" />
+    <path d="M 384 318 L 390 318 L 390 324" fill="none" stroke="#ffb800" stroke-width="1" opacity="0.5" />
+    <path d="M 225 366 L 225 372 L 231 372" fill="none" stroke="#ffb800" stroke-width="1" opacity="0.5" />
+    <path d="M 384 372 L 390 372 L 390 366" fill="none" stroke="#ffb800" stroke-width="1" opacity="0.5" />
+    
+    <text x="233" y="329" fill="#ffb800" opacity="0.75" font-size="7.5" font-weight="bold">[WIN.02]</text>
+    <text x="307" y="344" fill="#00ff41" font-size="22" font-weight="900" text-anchor="middle" filter="url(#glow-green)">4</text>
+    <text x="307" y="361" fill="#888888" font-size="9" text-anchor="middle" letter-spacing="1">HACKATHONS WON</text>
+  </g>
+
+  <!-- Stat Box 3: Lines of Code -->
+  <g class="stat-box box-3">
+    <rect x="410" y="318" width="165" height="54" rx="2" fill="url(#box-grad)" stroke="#1a1a1a" stroke-width="1" />
+    <!-- Corner L-brackets on Box 3 -->
+    <path d="M 410 324 L 410 318 L 416 318" fill="none" stroke="#00ff41" stroke-width="1" opacity="0.4" />
+    <path d="M 569 318 L 575 318 L 575 324" fill="none" stroke="#00ff41" stroke-width="1" opacity="0.4" />
+    <path d="M 410 366 L 410 372 L 416 372" fill="none" stroke="#00ff41" stroke-width="1" opacity="0.4" />
+    <path d="M 569 372 L 575 372 L 575 366" fill="none" stroke="#00ff41" stroke-width="1" opacity="0.4" />
+    
+    <text x="418" y="329" fill="#333333" font-size="7.5" font-weight="bold">[VOL.03]</text>
+    <text x="492" y="345" fill="#00ff41" font-size="24" font-weight="900" text-anchor="middle" filter="url(#glow-green)">∞</text>
+    <text x="492" y="361" fill="#888888" font-size="9" text-anchor="middle" letter-spacing="1">LINES OF CODE</text>
+  </g>
+
+  <!-- Stat Box 4: Online Status -->
+  <g class="stat-box box-4">
+    <rect x="595" y="318" width="165" height="54" rx="2" fill="url(#box-grad)" stroke="#1a1a1a" stroke-width="1" />
+    <!-- Corner L-brackets on Box 4 -->
+    <path d="M 595 324 L 595 318 L 601 318" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.5" />
+    <path d="M 754 318 L 760 318 L 760 324" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.5" />
+    <path d="M 595 366 L 595 372 L 601 372" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.5" />
+    <path d="M 754 372 L 760 372 L 760 366" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.5" />
+    
+    <text x="603" y="329" fill="#00d4ff" opacity="0.75" font-size="7.5" font-weight="bold">[NODE.04]</text>
+    <!-- ONLINE text with Pulsing Green Dot -->
+    <g transform="translate(642, 340)">
+      <circle cx="0" cy="-4" r="3.5" fill="#00ff41" class="pulse-dot" />
+      <text x="10" y="2" fill="#00ff41" font-size="16" font-weight="900" letter-spacing="1" filter="url(#glow-green)">ONLINE</text>
+    </g>
+    <text x="677" y="361" fill="#888888" font-size="9" text-anchor="middle" letter-spacing="1">STATUS</text>
+  </g>
+
+</svg>
